@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akash P – BCA Graduate Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF2F7; --surface:#FFFFFF; --ink:#14213D; --muted:#516079; --line:#D3DBE6;
+  --accent:#0F766E; --accent-ink:#FFFFFF; --code-bg:#14213D; --code-ink:#E6EDF7; --code-key:#7DD3C0; --code-str:#F5C77E;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1626; --surface:#162136; --ink:#EAF0F8; --muted:#9AA9C0; --line:#26344D;
+    --accent:#4FD1BD; --accent-ink:#0E1626; --code-bg:#0A101C; --code-ink:#E6EDF7;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1626; --surface:#162136; --ink:#EAF0F8; --muted:#9AA9C0; --line:#26344D;
+  --accent:#4FD1BD; --accent-ink:#0E1626; --code-bg:#0A101C; --code-ink:#E6EDF7;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px 18px;align-items:center;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+nav b{font-family:"Bricolage Grotesque",sans-serif;font-size:18px;margin-right:auto}
+nav a{text-decoration:none;color:var(--muted);font-size:15px;font-weight:500}
+nav a:hover{color:var(--ink)}
+.hero{padding:72px 0 56px}
+.hero h1{font-size:clamp(44px,9vw,92px);font-weight:800;letter-spacing:-0.03em}
+.hero p.lead{max-width:34em;font-size:clamp(18px,2.4vw,22px);color:var(--muted);margin:22px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--accent-ink)}
+.btn.alt{color:var(--ink);border-color:var(--line)}
+section{padding:48px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(28px,4.5vw,40px);margin-bottom:22px;font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.chips li{padding:9px 18px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:500}
+.chips.skills li{border-color:var(--accent);font-weight:600}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.item h3{font-size:22px;margin-bottom:4px}
+.item .meta{color:var(--muted);margin:0 0 10px}
+.item p{margin:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.proj h3{font-size:21px}
+.proj .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding:0;list-style:none}
+.proj .stack li{font-size:13.5px;font-weight:600;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:3px 12px}
+.code{background:var(--code-bg);color:var(--code-ink);border-radius:14px;padding:20px;overflow-x:auto;font:14.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:0}
+.code .k{color:var(--code-key)}.code .s{color:var(--code-str)}.code .c{color:#8794AD}
+.run{margin-top:14px;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.run button{font:inherit;font-weight:600;cursor:pointer;padding:11px 22px;border-radius:999px;border:0;background:var(--accent);color:var(--accent-ink)}
+#out{flex:1;min-width:220px;margin:0;min-height:88px;background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:14px 18px;font:15px/1.7 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap}
+.note{color:var(--muted);font-size:15px;margin-top:10px}
+footer{border-top:1px solid var(--line);padding:34px 0 44px;color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <b>Akash P</b>
+  <a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#code">Python</a><a href="#contact">Contact</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1>Akash P</h1>
+  <p class="lead">Bachelor of Computer Applications graduate with a strong foundation in Python, Java and data analytics, seeking an entry-level role to build reliable, data-driven solutions.</p>
+  <div class="btns">
+    <a class="btn main" href="#projects">View projects</a>
+    <a class="btn alt" href="#contact">Get in touch</a>
+  </div>
+</div></header>
+
+<main>
+<section id="about"><div class="wrap">
+  <h2>About me</h2>
+  <p style="max-width:40em;margin:0">I am a BCA graduate from Central Commerce College with hands-on training in programming, data analytics and front-end web development. I approach problems methodically, write clean and readable code, and enjoy turning raw data into clear insights. As a fresher, I am eager to join a collaborative team where I can apply my technical skills, keep learning, and contribute to meaningful work from day one.</p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <ul class="chips skills">
+    <li>Data Analytics</li><li>Python</li><li>Java</li><li>HTML</li><li>CSS</li>
+  </ul>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2>Education</h2>
+  <div class="item">
+    <h3>Bachelor of Computer Applications (BCA)</h3>
+    <p class="meta">Central Commerce College · Batch 2026–27</p>
+    <p>Undergraduate degree in computer applications, covering programming, databases and web development.</p>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <div class="item">
+    <h3>Fresher</h3>
+    <p class="meta">Open to internships and entry-level roles</p>
+    <p>Entry-level candidate with no prior professional experience. I have built practical skills through academic coursework and self-driven projects in Python, Java, HTML and CSS, and I am ready to apply them in a professional environment.</p>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="grid">
+    <article class="item proj">
+      <h3>Student Marks Analyzer</h3>
+      <p class="meta">Academic project</p>
+      <p>Python program that reads subject marks and calculates the total, average, grade and top-scoring subject, with clear formatted output.</p>
+      <ul class="stack"><li>Python</li></ul>
+    </article>
+    <article class="item proj">
+      <h3>Sales Data Analysis</h3>
+      <p class="meta">Data analytics project</p>
+      <p>Cleaned a sales dataset, found monthly trends and best-selling products, and summarised the findings in simple tables and charts.</p>
+      <ul class="stack"><li>Python</li><li>Data Analytics</li></ul>
+    </article>
+    <article class="item proj">
+      <h3>Library Management System</h3>
+      <p class="meta">Academic project</p>
+      <p>Console application in Java using object-oriented design to add books, issue and return them, and track availability.</p>
+      <ul class="stack"><li>Java</li><li>OOP</li></ul>
+    </article>
+    <article class="item proj">
+      <h3>Personal Portfolio Website</h3>
+      <p class="meta">Web project</p>
+      <p>Responsive portfolio site presenting my skills, education and work, with a layout that adapts to phones and desktops.</p>
+      <ul class="stack"><li>HTML</li><li>CSS</li></ul>
+    </article>
+  </div>
+</div></section>
+
+<section id="interests"><div class="wrap">
+  <h2>Interests</h2>
+  <ul class="chips">
+    <li>Data analysis</li><li>Problem solving</li><li>Python programming</li><li>Web design</li><li>Learning new technology</li>
+  </ul>
+</div></section>
+
+<section id="code"><div class="wrap">
+  <h2>Python example</h2>
+  <p style="margin:0 0 16px;color:var(--muted)">A short program that calculates the total, average and best-performing subject from a set of marks.</p>
+<pre class="code"><span class="c"># Marks analysis (sample data)</span>
+marks = {<span class="s">"Python"</span>: 88, <span class="s">"Java"</span>: 82, <span class="s">"Data Analytics"</span>: 91, <span class="s">"Web Design"</span>: 85}
+
+total = <span class="k">sum</span>(marks.values())
+average = total / <span class="k">len</span>(marks)
+best = <span class="k">max</span>(marks, key=marks.get)
+
+<span class="k">print</span>(f<span class="s">"Total: {total}"</span>)
+<span class="k">print</span>(f<span class="s">"Average: {average:.2f}"</span>)
+<span class="k">print</span>(f<span class="s">"Best subject: {best}"</span>)</pre>
+  <div class="run">
+    <button id="runBtn" type="button">Run program</button>
+    <pre id="out" aria-live="polite">Press “Run program” to see the output.</pre>
+  </div>
+  <p class="note">The numbers above are sample data, not real marks.</p>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <p style="margin:0 0 16px">I am open to internships and entry-level opportunities. Please reach out to discuss how I can contribute to your team.</p>
+  <div class="btns">
+    <a class="btn main" href="mailto:your-email@example.com">your-email@example.com</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Akash P · BCA, Central Commerce College</div></footer>
+
+<script>
+document.getElementById('runBtn').addEventListener('click', function(){
+  var marks={"Python":88,"Java":82,"Data Analytics":91,"Web Design":85};
+  var keys=Object.keys(marks), total=0, best=keys[0];
+  keys.forEach(function(k){ total+=marks[k]; if(marks[k]>marks[best]) best=k; });
+  document.getElementById('out').textContent =
+    "Total: "+total+"\nAverage: "+(total/keys.length).toFixed(2)+"\nBest subject: "+best;
+});
+</script>
+</body>
+</html>
